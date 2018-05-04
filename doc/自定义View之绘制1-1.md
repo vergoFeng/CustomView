@@ -1,4 +1,11 @@
-# 自定义View之绘制1-1
+---
+layout: post
+title: "自定义View之绘制1-1"
+date: 2018-05-04
+toc: false
+tags:
+	- View
+---
 自定义绘制的方法是重写绘制方法，最常用的是onDraw()，绘制的关键是Canvas的使用。
 
 ## 自定义绘制知识的4个级别
@@ -6,6 +13,8 @@
 * Paint 的完全攻略
 * Canvas 对绘制的辅助——范围裁切和几何变换。
 * 可以使用不同的绘制方法来控制遮盖关系。
+
+<!-- more -->
 
 ## Canvas.drawXXX()系列方法
 ### 绘制颜色<br>drawColor(int color)
@@ -145,3 +154,58 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 ```
 ![](https://i.imgur.com/HXP6T87.png)
 
+### 绘制自定义图形<br>drawPath(Path path, Paint paint)
+
+drawPath() 这个方法是通过描述路径的方式来绘制图形的，它的 path 参数就是用来描述图形路径的对象。path 的类型是 Path ，使用方法大概像下面这样：
+
+```
+Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+Path path = new Path();
+
+@Override
+protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+    RectF rectF1 = new RectF(200, 200, 400, 400);
+    path.addArc(rectF1, -225, 225);
+
+    RectF rectF2 = new RectF(400, 200, 600, 400);
+    path.arcTo(rectF2, -180, 225);
+    path.lineTo(400, 542);
+
+    canvas.drawPath(path, paint);
+}
+```
+
+![](/assets/imgs/drawPath_01.png)
+
+详细使用请阅读 自定义View之绘制1-2
+
+### 绘制 Bitmap<br>drawBitmap(Bitmap bitmap, float left, float top, Paint paint)
+
+绘制 Bitmap 对象，也就是把这个 Bitmap 中的像素内容贴过来。其中 left 和 top 是要把 bitmap 绘制到的位置坐标。它的使用非常简单。
+
+```
+Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+canvas.drawBitmap(bitmap, 100, 100, paint);
+```
+
+![](/assets/imgs/drawBitmap.png)
+
+它的重载方法：
+
+```
+drawBitmap(Bitmap bitmap, Rect src, RectF dst, Paint paint) drawBitmap(Bitmap bitmap, Rect src, Rect dst, Paint paint)
+drawBitmap(Bitmap bitmap, Matrix matrix, Paint paint)
+```
+
+### 绘制文字<br>drawText(String text, float x, float y, Paint paint) 
+
+界面里所有的显示内容，都是绘制出来的，包括文字。 drawText() 这个方法就是用来绘制文字的。参数  text 是用来绘制的字符串，x 和 y 是绘制的起点坐标。
+
+```
+canvas.drawText("Hello World", 100, 200, paint);
+```
+
+![](/assets/imgs/drawText.png)
+
+设置文字的位置和尺寸，这些只是绘制文字最基本的操作。文字的绘制具有极高的定制性，详情请	阅读 自定义View之绘制1-2。

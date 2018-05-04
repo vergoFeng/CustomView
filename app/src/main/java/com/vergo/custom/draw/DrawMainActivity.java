@@ -32,6 +32,9 @@ public class DrawMainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.layout.draw_line_view, R.string.title_draw_line));
         pageModels.add(new PageModel(R.layout.draw_roundrect_view, R.string.title_draw_round_rect));
         pageModels.add(new PageModel(R.layout.draw_arc_view, R.string.title_draw_arc));
+        pageModels.add(new PageModel(R.layout.draw_path_view, R.string.title_draw_path));
+        pageModels.add(new PageModel(R.layout.draw_bitmap_view, R.string.title_draw_bitmap));
+        pageModels.add(new PageModel(R.layout.draw_text_view, R.string.title_draw_text));
     }
 
     @Override
@@ -62,9 +65,6 @@ public class DrawMainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(pager);
         tabLayout.setVisibility(View.GONE);
-        tabLayout.setOnClickListener(v -> {
-
-        });
     }
 
     private class PageModel {

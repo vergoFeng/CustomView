@@ -10,6 +10,8 @@
     <string name="title_draw_round_rect">drawRoundRect()</string>
     <string name="title_draw_arc">drawArc()</string>
     <string name="title_draw_path">drawPath()</string>
+    <string name="title_draw_bitmap">drawBitmap()</string>
+    <string name="title_draw_text">drawText()</string>
     <string name="title_draw_histogram">直方图</string>
     <string name="title_draw_pie_chart">饼图</string>
 </resources>
