@@ -25,7 +25,7 @@ public class DrawTextView extends View {
         super(context, attrs, defStyleAttr);
     }
 
-    Paint paint = new Paint();
+    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
