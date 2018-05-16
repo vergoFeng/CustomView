@@ -176,9 +176,9 @@ protected void onDraw(Canvas canvas) {
 }
 ```
 
-![](/assets/imgs/drawPath_01.png)
+![](../imgs/drawPath_01.png)
 
-详细使用请阅读 自定义View之绘制1-2
+详细使用请阅读 [《自定义View之绘制1-2》](自定义View之绘制1-2.md)
 
 ### 绘制 Bitmap<br>drawBitmap(Bitmap bitmap, float left, float top, Paint paint)
 
@@ -189,7 +189,7 @@ Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launche
 canvas.drawBitmap(bitmap, 100, 100, paint);
 ```
 
-![](/assets/imgs/drawBitmap.png)
+![](../imgs/drawBitmap.png)
 
 它的重载方法：
 
@@ -206,6 +206,6 @@ drawBitmap(Bitmap bitmap, Matrix matrix, Paint paint)
 canvas.drawText("Hello World", 100, 200, paint);
 ```
 
-![](/assets/imgs/drawText.png)
+![](../imgs/drawText.png)
 
-设置文字的位置和尺寸，这些只是绘制文字最基本的操作。文字的绘制具有极高的定制性，详情请	阅读 自定义View之绘制1-2。
+设置文字的位置和尺寸，这些只是绘制文字最基本的操作。文字的绘制具有极高的定制性，详情请	阅读 [《自定义View之绘制1-3》](自定义View之绘制1-3.md)。
