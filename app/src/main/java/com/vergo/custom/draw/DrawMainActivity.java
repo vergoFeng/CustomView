@@ -35,6 +35,8 @@ public class DrawMainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.layout.draw_path_view, R.string.title_draw_path));
         pageModels.add(new PageModel(R.layout.draw_bitmap_view, R.string.title_draw_bitmap));
         pageModels.add(new PageModel(R.layout.draw_text_view, R.string.title_draw_text));
+        pageModels.add(new PageModel(R.layout.draw_histogram_view, R.string.title_draw_histogram));
+        pageModels.add(new PageModel(R.layout.draw_piechart_view, R.string.title_draw_pie_chart));
     }
 
     @Override
